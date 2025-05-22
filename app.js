@@ -107,16 +107,13 @@ var products = [
   ];
 
 
-
-
 let title = products.map(products=> products.title);
 console.log(title);
 
 
-let blackColorProducts = products.filter((b)=>
-        b.variations.filter((variation) => variation.color === "silver").length)
+let blackColorProducts = products.filter((b)=>b.variations.filter((c)=>c.color === "black"));
       
-      console.log(blackColorProducts);
+      console.log(...blackColorProducts );
 
 
 
@@ -135,15 +132,8 @@ console.log("Total Stock:", totalStock);
 
       let highreviews  = products.filter((rev)=> rev.reviews.filter((reviews)=> reviews.rating === 5.0,).length );
 
-      console.log(highreviews);
+      console.log(...highreviews);
 
-
-
-
-
-
-
-      
 
 
 
@@ -156,7 +146,7 @@ let productsDetails = products.map(product => ({
   }))
 }));
 
-console.log(productsDetails);
+console.log(...productsDetails);
 
 
 
@@ -176,9 +166,6 @@ console.log("Total Revenue:", totalRevenue);
 
 
 
-
-      
-
 let totalproducts = products.reduce((total, product) => {
   let productStock = product.variations.reduce((sum, variation) => sum + variation.quantity, 0);
   return total + productStock;
@@ -188,4 +175,21 @@ console.log("Total Stock:", totalproducts);
 
 
 
+
+let food = [ 
+
+  { menu:1, dish: "biryani" },
+  { menu:2, dish: "sijji" },
+  { menu:3, dish: "dampakhth" },
+  { menu:4, dish: "bihari kabab" }
+
+];
+
+let cook = food.filter(cheif =>cheif.dish === "biryani");
+console.log(...cook);
+
+let cooks =food.find(({menu})=>menu === 4 );
+  console.log(cooks);
+
+// const result = inventory.find(({ name }) => name === "cherries");
 
